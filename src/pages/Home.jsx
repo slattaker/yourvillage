@@ -7,7 +7,14 @@ function Home() {
       <VillageIntro />
       <Navbar />
 
-      <main>
+
+<main
+  style={{
+    animation: "fadeWebsite 2s ease",
+  }}
+>
+
+
         {/* HERO SECTION */}
         <section
           style={{

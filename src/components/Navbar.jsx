@@ -1,20 +1,33 @@
+import logo from "../assets/zoes-village-logo.png";
+
 function Navbar() {
   return (
     <nav
       style={{
         display: "flex",
         justifyContent: "space-between",
-        padding: "20px 40px",
+        alignItems: "center",
+        padding: "15px 40px",
         backgroundColor: "white",
         borderBottom: "1px solid #ddd",
+        position: "sticky",
+        top: 0,
+        zIndex: 1000,
       }}
     >
-      <h3>Zoe's Village</h3>
+      <img
+        src={logo}
+        alt="Zoë's Village"
+        style={{
+          height: "60px",
+          width: "auto",
+        }}
+      />
 
       <div
         style={{
           display: "flex",
-          gap: "20px",
+          gap: "30px",
         }}
       >
         <span>Home</span>
