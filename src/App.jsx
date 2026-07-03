@@ -1,16 +1,8 @@
+
+import Home from "./pages/Home";
+
 function App() {
-  return (
-    <div>
-      <h1>Your Village</h1>
-      <h2>It Takes a Village.</h2>
-
-      <p>
-        Compassionate birth and postpartum support for growing families.
-      </p>
-
-      <button>Schedule a Consultation</button>
-    </div>
-  );
+  return <Home />;
 }
 
 export default App;
