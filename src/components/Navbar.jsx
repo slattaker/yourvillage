@@ -9,7 +9,7 @@ function Navbar() {
         borderBottom: "1px solid #ddd",
       }}
     >
-      <h3>Your Village</h3>
+      <h3>Zoe's Village</h3>
 
       <div
         style={{
