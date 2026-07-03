@@ -1,0 +1,339 @@
+.village-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  overflow: hidden;
+  background: #f8efe4;
+  animation: introDisappear 9s ease forwards;
+}
+
+.morning-background {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at center 42%, rgba(255, 213, 145, 0.5), transparent 28%),
+    linear-gradient(to bottom, #fffaf3 0%, #f8efe4 50%, #f1ddc7 100%);
+  opacity: 0;
+  animation: morningFadeIn 2s ease forwards;
+}
+
+/* Sun animation area */
+.sun-animation {
+  position: absolute;
+  left: 50%;
+  top: 34%;
+  width: 720px;
+  height: 300px;
+  transform: translateX(-50%);
+  animation: sunGroupExit 6.2s ease forwards;
+}
+
+/* Rising half sun */
+.rising-sun {
+  position: absolute;
+  left: 50%;
+  bottom: 78px;
+  width: 160px;
+  height: 80px;
+  transform: translateX(-50%) translateY(105px);
+  background: radial-gradient(circle at center, #f7c978, #e5a348);
+  border-radius: 160px 160px 0 0;
+  box-shadow:
+    0 0 35px rgba(237, 174, 82, 0.45),
+    0 0 90px rgba(237, 174, 82, 0.22);
+  opacity: 0;
+  animation: sunRise 3.4s ease forwards;
+}
+
+/* Rays behind the sun */
+.sun-rays {
+  position: absolute;
+  left: 50%;
+  bottom: 25px;
+  width: 420px;
+  height: 420px;
+  transform: translateX(-50%) scale(0.75);
+  border-radius: 50%;
+  background: repeating-conic-gradient(
+    from 0deg,
+    rgba(214, 156, 73, 0.8) 0deg 2deg,
+    transparent 2deg 15deg
+  );
+  opacity: 0;
+  animation: raysReveal 3.7s ease forwards;
+}
+
+/* Wavy horizon line */
+.horizon-line {
+  position: absolute;
+  left: 50%;
+  bottom: 60px;
+  width: 700px;
+  height: 80px;
+  transform: translateX(-50%);
+  opacity: 0;
+  animation: waveReveal 3s ease forwards;
+}
+
+.horizon-line path {
+  fill: none;
+  stroke: rgba(206, 151, 72, 0.9);
+  stroke-width: 5;
+
+  stroke-dasharray: 1400;
+  stroke-dashoffset: 1400;
+
+  animation: drawWave 2.8s ease forwards;
+}
+
+/* Full logo reveal */
+.logo-wrapper {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(40px) scale(0.96);
+  animation: logoRevealAndMove 9s ease forwards;
+}
+
+.logo-wrapper img {
+  width: min(78vw, 780px);
+  height: auto;
+  filter: drop-shadow(0 18px 35px rgba(80, 55, 35, 0.13));
+}
+
+/* soft fade at end */
+.intro-soft-fade {
+  position: absolute;
+  inset: 0;
+  background: #f8efe4;
+  opacity: 0;
+  pointer-events: none;
+  animation: finalSoftFade 9s ease forwards;
+}
+
+/* Animations */
+
+@keyframes morningFadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes sunRise {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(105px);
+  }
+
+  25% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+@keyframes raysReveal {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) scale(0.65) rotate(-5deg);
+  }
+
+  40% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0.72;
+    transform: translateX(-50%) scale(1) rotate(0deg);
+  }
+}
+
+@keyframes horizonDraw {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+
+  35% {
+    opacity: 1;
+  }
+
+  100% {
+    width: 660px;
+    opacity: 1;
+  }
+}
+
+@keyframes sunGroupExit {
+  0% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(35px) scale(1);
+  }
+
+  62% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-35px) scale(0.94);
+  }
+}
+
+@keyframes logoRevealAndMove {
+  0% {
+    opacity: 0;
+    transform: translateY(45px) scale(0.96);
+  }
+
+  42% {
+    opacity: 0;
+    transform: translateY(45px) scale(0.96);
+  }
+
+  58% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  75% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-280px) scale(0.78);
+  }
+}
+
+@keyframes finalSoftFade {
+  0% {
+    opacity: 0;
+  }
+
+  84% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes introDisappear {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  88% {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* Mobile version */
+@media (max-width: 768px) {
+  .sun-animation {
+    width: 380px;
+    top: 32%;
+  }
+
+  .rising-sun {
+    width: 110px;
+    height: 55px;
+    bottom: 78px;
+  }
+
+  .sun-rays {
+    width: 280px;
+    height: 280px;
+    bottom: 30px;
+  }
+
+  .horizon-line {
+    bottom: 70px;
+  }
+
+  .logo-wrapper img {
+    width: 92vw;
+  }
+
+  @keyframes horizonDraw {
+    0% {
+      width: 0;
+      opacity: 0;
+    }
+
+    35% {
+      opacity: 1;
+    }
+
+    100% {
+      width: 350px;
+      opacity: 1;
+    }
+  }
+@keyframes drawWave {
+  from {
+    stroke-dashoffset: 1400;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes waveReveal {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+  @keyframes logoRevealAndMove {
+    0% {
+      opacity: 0;
+      transform: translateY(45px) scale(0.96);
+    }
+
+    42% {
+      opacity: 0;
+      transform: translateY(45px) scale(0.96);
+    }
+
+    58% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    75% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    100% {
+      opacity: 0;
+      transform: translateY(-190px) scale(0.78);
+    }
+  }
+}
