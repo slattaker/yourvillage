@@ -1,3 +1,5 @@
+import heroImage from "../assets/hero-baby-feet.png";
+
 function Hero() {
   return (
     <section className="hero">
@@ -11,12 +13,12 @@ function Hero() {
       <div className="hero-content reveal">
         <p className="eyebrow">Charlotte Birth & Postpartum Doula</p>
 
-        <h1>
-          Every family deserves a village.
-        </h1>
+        <h1>Every family deserves a village.</h1>
 
         <p>
-          Thoughtful birth and postpartum care that helps you feel calm, informed, and supported — from pregnancy through your first days at home.
+          Thoughtful birth and postpartum care that helps you feel calm,
+          informed, and supported — from pregnancy through your first days at
+          home.
         </p>
 
         <div className="hero-actions">
@@ -28,21 +30,14 @@ function Hero() {
             Explore Services
           </a>
         </div>
-
-
       </div>
 
-      <div className="hero-art reveal">
-        <div className="hero-card">
-          <div className="sun"></div>
-          <div className="hill hill-one"></div>
-          <div className="hill hill-two"></div>
-          <div className="cottage">
-            <div className="roof"></div>
-            <div className="house"></div>
-            <div className="door"></div>
-          </div>
-        </div>
+      <div className="hero-image-wrapper reveal">
+        <img
+          src={heroImage}
+          alt="Newborn baby's feet wrapped in a soft blanket"
+          className="hero-image"
+        />
       </div>
     </section>
   );
