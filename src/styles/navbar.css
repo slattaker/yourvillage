@@ -98,28 +98,20 @@
     padding 0.35s ease,
     background 0.35s ease,
     box-shadow 0.35s ease,
-    border-radius 0.35s ease;
+    border-radius 0.35s ease,
+    backdrop-filter 0.35s ease;
 }
 
 .navbar-scrolled {
-  width: min(calc(100% - 32px), 940px);
+  width: min(calc(100% - 32px), 920px);
   padding: 8px 12px;
-  background: rgba(255, 250, 244, 0.9);
-  box-shadow: 0 16px 44px rgba(63, 50, 41, 0.12);
+  background: rgba(255, 250, 244, 0.92);
+  backdrop-filter: blur(24px);
+  box-shadow: 0 18px 48px rgba(63, 50, 41, 0.14);
 }
 
 .navbar-scrolled .nav-logo {
   width: 54px;
-}
-
-.navbar-scrolled .nav-logo-full {
-  opacity: 0;
-  transform: translateY(-50%) translateX(-10px) scale(0.84);
-}
-
-.navbar-scrolled .nav-logo-icon {
-  opacity: 1;
-  transform: translateY(-50%) scale(1);
 }
 
 .navbar-scrolled .nav-cta {
@@ -143,4 +135,48 @@
   .navbar-scrolled .nav-logo {
     width: 46px;
   }
+}
+
+.nav-cta {
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-cta::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 231, 168, 0.42),
+    transparent
+  );
+  transform: translateX(-120%);
+  animation: ctaGlow 3.8s ease 1.2s 1;
+}
+
+@keyframes ctaGlow {
+  to {
+    transform: translateX(120%);
+  }
+}
+
+.navbar-scrolled .nav-logo-full {
+  opacity: 0;
+  transform: translateY(-50%) translateX(-14px) scale(0.82);
+  filter: blur(2px);
+}
+
+.navbar-scrolled .nav-logo-icon {
+  opacity: 1;
+  transform: translateY(-50%) scale(1);
+  filter: blur(0);
+}
+
+.nav-logo-icon {
+  height: 44px;
+  opacity: 0;
+  transform: translateY(-50%) scale(0.7);
+  filter: blur(4px);
 }

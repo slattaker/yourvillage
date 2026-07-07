@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import logo from "../assets/zoes-village-logo.png";
+import logo from "../assets/zoes-village-logo.svg";
+import SunMarkDraw from "./SunMarkDraw.jsx";
 
 const INTRO_KEY = "zv-intro-last-shown";
 const THIRTY_DAYS = 1000 * 60 * 60 * 24 * 30;
@@ -49,51 +50,34 @@ useEffect(() => {
 
 if (!showIntro) return null;
 
-  return (
-    <section className="village-intro" aria-label="Zoë's Village introduction">
-      <div className="intro-sky"></div>
+return (
+  <section className="village-intro" aria-label="Zoë's Village introduction">
+    <div className="intro-sky"></div>
 
-        <div className="intro-sun-wrapper">
-          <svg
-            className="intro-sun-svg"
-            viewBox="0 0 500 280"
-            aria-hidden="true"
-          >
-            <g className="intro-logo-rays">
-              <path d="M250 130 L250 10" />
-              <path d="M250 130 L180 25" />
-              <path d="M250 130 L110 55" />
-              <path d="M250 130 L50 125" />
-              <path d="M250 130 L390 55" />
-              <path d="M250 130 L320 25" />
-              <path d="M250 130 L450 125" />
-            </g>
+    <SunMarkDraw />
 
-            <path
-              className="intro-logo-sun"
-              d="M165 155 C175 95, 220 65, 250 65 C295 65, 335 98, 345 155 Z"
-            />
-          </svg>
-        </div>
+    <div className="intro-hill intro-hill-one"></div>
+    <div className="intro-hill intro-hill-two"></div>
 
-      <div className="intro-hill intro-hill-one"></div>
-      <div className="intro-hill intro-hill-two"></div>
+    <div className="intro-path"></div>
 
-      <div className="intro-path"></div>
+    <div className="intro-flowers">
+      <span>✿</span>
+      <span>❀</span>
+      <span>✦</span>
+      <span>✿</span>
+      <span>❀</span>
+    </div>
 
-      <div className="intro-flowers">
-        <span>✿</span>
-        <span>❀</span>
-        <span>✦</span>
-        <span>✿</span>
-        <span>❀</span>
-      </div>
+    <img
+      className="intro-logo"
+      src={logo}
+      alt="Zoë's Village logo"
+    />
 
-      <img className="intro-logo" src={logo} alt="Zoë's Village logo" />
-
-      <div className="intro-fade"></div>
-    </section>
-  );
+    <div className="intro-fade"></div>
+  </section>
+);
 }
 
 export default VillageIntro;

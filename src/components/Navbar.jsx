@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import horizontalLogo from "../assets/zoes-village-horizontal-logo.png";
-import iconLogo from "../assets/zoes-village-icon.png";
+import horizontalLogo from "../assets/zoes-village-horizontal-logo.svg";
+import iconLogo from "../assets/zoes-village-icon.svg";
 
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);

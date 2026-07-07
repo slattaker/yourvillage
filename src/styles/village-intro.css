@@ -19,79 +19,6 @@
   animation: introSkyIn 1.4s ease forwards;
 }
 
-.intro-sun-wrapper {
-  position: absolute;
-  left: 50%;
-  top: 47%;
-  width: min(76vw, 520px);
-  height: 280px;
-  opacity: 0;
-  transform: translate(-50%, 90px);
-  animation: introSunRise 2.3s ease forwards;
-}
-
-.intro-sun-svg {
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-}
-
-.intro-logo-rays path {
-  fill: none;
-  stroke: rgba(228, 177, 90, 0.88);
-  stroke-width: 8;
-  stroke-linecap: round;
-  stroke-dasharray: 180;
-  stroke-dashoffset: 180;
-  filter: drop-shadow(0 0 18px rgba(228, 177, 90, 0.42));
-  animation: drawLogoRays 1.35s ease forwards;
-  animation-delay: 0.85s;
-}
-
-.intro-logo-rays path:nth-child(2) {
-  animation-delay: 0.95s;
-}
-
-.intro-logo-rays path:nth-child(3) {
-  animation-delay: 1.05s;
-}
-
-.intro-logo-rays path:nth-child(4) {
-  animation-delay: 1.15s;
-}
-
-.intro-logo-rays path:nth-child(5) {
-  animation-delay: 1.05s;
-}
-
-.intro-logo-rays path:nth-child(6) {
-  animation-delay: 0.95s;
-}
-
-.intro-logo-rays path:nth-child(7) {
-  animation-delay: 1.15s;
-}
-
-.intro-logo-sun {
-  fill: #e4b15a;
-  opacity: 0;
-  filter: drop-shadow(0 0 40px rgba(228, 177, 90, 0.48));
-  animation: sunFillIn 0.9s ease forwards;
-  animation-delay: 1.1s;
-}
-
-@keyframes drawLogoRays {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-@keyframes sunFillIn {
-  to {
-    opacity: 1;
-  }
-}
-
 .intro-hill {
   position: absolute;
   left: -10%;
@@ -174,6 +101,7 @@
 
 .intro-logo {
   position: relative;
+  top: 40px;   /* Increase this value to move it lower */
   z-index: 4;
   width: min(72vw, 560px);
   opacity: 0;
@@ -195,42 +123,6 @@
   to {
     opacity: 1;
   }
-}
-
-@keyframes introSunRise {
-  0% {
-    opacity: 0;
-    transform: translate(-50%, 120px);
-  }
-
-  30% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 1;
-    transform: translate(-50%, -38px);
-  }
-}
-
-@keyframes introRayDraw {
-
-    from{
-
-        opacity:0;
-
-        transform:scaleY(0);
-
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:scaleY(1);
-
-    }
-
 }
 
 @keyframes introHillIn {
@@ -300,13 +192,189 @@
     width: 88vw;
   }
 
-  .intro-sun {
-    width: 120px;
-    height: 60px;
-  }
-
   .intro-flowers {
     gap: 18px;
     font-size: 1.55rem;
   }
+}
+
+.sun-mark-draw {
+  position: absolute;
+  left: 50%;
+  top: 34%;
+  width: min(82vw, 620px);
+  transform: translate(-50%, -50%);
+  z-index: 4;
+}
+
+.sun-mark-draw svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.draw-horizon,
+.draw-ray,
+.draw-sun-stroke {
+  fill: none;
+  stroke: #dca24b;
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.draw-horizon {
+  stroke-dasharray: 900;
+  stroke-dashoffset: 900;
+  animation: drawLine 1s ease forwards;
+}
+
+.draw-sun-fill {
+  fill: #e4b15a;
+
+  opacity: 0;
+
+  transform: translateY(42px);
+
+  animation:
+      sunRiseFill .9s ease forwards,
+      sunGlow 5s ease-in-out infinite;
+
+  animation-delay:
+      .7s,
+      2.5s;
+}
+
+.draw-sun-stroke {
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+  animation: drawLine 0.8s ease forwards;
+  animation-delay: 0.8s;
+}
+
+.sun-mark-draw::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0.4);
+  background: radial-gradient(
+    circle,
+    rgba(255, 228, 160, 0.75),
+    transparent 70%
+  );
+  opacity: 0;
+  animation: sunriseBloom 1.5s ease forwards;
+  animation-delay: 0.8s;
+}
+
+.draw-ray {
+  stroke-dasharray: 180;
+  stroke-dashoffset: 180;
+  animation: drawLine 0.7s ease forwards;
+  animation-delay: 1.3s;
+}
+
+.draw-ray:nth-of-type(2) {
+  animation-delay: 1.10s;
+}
+
+.draw-ray:nth-of-type(3) {
+  animation-delay: 1.18s;
+}
+
+.draw-ray:nth-of-type(4) {
+  animation-delay: 1.26s;
+}
+
+.draw-ray:nth-of-type(5) {
+  animation-delay: 1.34s;
+}
+
+.draw-ray:nth-of-type(6) {
+  animation-delay: 1.42s;
+}
+
+.draw-ray:nth-of-type(7) {
+  animation-delay: 1.50s;
+}
+
+.draw-ray:nth-of-type(8) {
+  animation-delay: 1.58s;
+}
+
+.draw-ray:nth-of-type(9) {
+  animation-delay: 1.66s;
+}
+
+.draw-ray:nth-of-type(10) {
+  animation-delay: 1.74s;
+}
+
+.draw-ray:nth-of-type(11) {
+  animation-delay: 1.82s;
+}
+
+.draw-ray:nth-of-type(12) {
+  animation-delay: 1.90s;
+}
+
+.draw-ray:nth-of-type(13) {
+  animation-delay: 1.98s;
+}
+
+.draw-ray:nth-of-type(14) {
+  animation-delay: 2.06s;
+}
+
+.draw-ray:nth-of-type(15) {
+  animation-delay: 2.14s;
+}
+
+@keyframes drawLine {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes sunRiseFill {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes sunGlow {
+
+  0%,100%{
+
+      filter: drop-shadow(0 0 10px rgba(228,177,90,.25));
+
+  }
+
+  50%{
+
+      filter: drop-shadow(0 0 28px rgba(228,177,90,.45));
+
+  }
+
+}
+
+@keyframes sunriseBloom{
+
+    to{
+
+        opacity:1;
+
+        transform:
+
+            translate(-50%,-50%)
+
+            scale(1);
+
+    }
+
 }
