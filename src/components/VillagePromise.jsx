@@ -28,11 +28,11 @@ function VillagePromise() {
           </p>
 
           <div className="promise-actions">
-            <a className="primary-btn" href="mailto:hello@zoesvillage.com">
+            <a className="primary-btn" href="https://calendar.app.google/nXVsKwuQUBeXJyis8">
               Schedule a Free Consultation
             </a>
 
-            <a className="secondary-btn" href="tel:+10000000000">
+            <a className="secondary-btn" href="tel:">
               Call or Text
             </a>
           </div>

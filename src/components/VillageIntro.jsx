@@ -6,9 +6,10 @@ const INTRO_KEY = "zv-intro-last-shown";
 const THIRTY_DAYS = 1000 * 60 * 60 * 24 * 30;
 
 function VillageIntro() {
-const [showIntro, setShowIntro] = useState(true);
+/*const [showIntro, setShowIntro] = useState(true);*/
+/* The above is to repeatplay the intro for testing purposes. The below is the actual code to only show the intro once every 30 days. */
 
-    /*const [showIntro, setShowIntro] = useState(() => {
+    const [showIntro, setShowIntro] = useState(() => {
     const lastShown = localStorage.getItem(INTRO_KEY);
 
     if (!lastShown) return true;
@@ -17,7 +18,7 @@ const [showIntro, setShowIntro] = useState(true);
         Date.now() - Number(lastShown);
 
     return daysSince > THIRTY_DAYS;
-    });*/
+    });
 
 useEffect(() => {
   if (!showIntro) return;

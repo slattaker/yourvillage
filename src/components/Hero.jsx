@@ -39,20 +39,27 @@ function Hero() {
       <div className="hero-flower flower-two">❀</div>
       <div className="hero-flower flower-three">✧</div>
 
-      <div className="hero-content reveal">
-        <p className="eyebrow">Charlotte Birth & Postpartum Doula</p>
-        <h1>Every family deserves a village.</h1>
+<div className="hero-content reveal">
+  <p className="eyebrow">Charlotte Birth & Postpartum Doula</p>
 
-        <p>
-          Thoughtful birth and postpartum care that helps you feel calm,
-          informed, and supported — from pregnancy through your first days at
-          home.
-        </p>
+  <h1>Every family deserves a village.</h1>
+
+  <p>
+    Thoughtful birth and postpartum care that helps you feel calm,
+    informed, and supported — from pregnancy through your first days at
+    home.
+  </p>
 
         <div className="hero-actions">
-          <a className="primary-btn" href="#contact">
+          <a
+            className="primary-btn"
+            href="https://calendar.app.google/nXVsKwuQUBeXJyis8"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Schedule a Free Consultation
           </a>
+
           <a className="secondary-btn" href="#services">
             Explore Services
           </a>

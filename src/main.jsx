@@ -4,7 +4,7 @@ import "./styles/variables.css";
 import "./styles/globals.css";
 import "./styles/animations.css";
 import "./styles/navbar.css";
-import "./styles/hero.css";
+import "./styles/Hero.css";
 import "./styles/about-preview.css";
 import "./styles/services-preview.css";
 import "./styles/village-landscape.css";

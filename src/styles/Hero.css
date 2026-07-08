@@ -1,15 +1,15 @@
 .hero {
   position: relative;
-  min-height: calc(100vh - 40px);
-  width: min(calc(100% - 32px), 1280px);
+  min-height: 780px;
+  width: min(calc(100% - 32px), 1180px);
   margin: 42px auto 0;
-  padding: 120px 64px 90px;
+  padding: 105px 56px 76px;
   border-radius: 44px;
   overflow: hidden;
   display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  align-items: center;
-  gap: 90px;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+  gap: 56px;
   background: linear-gradient(135deg, rgba(255, 250, 244, 0.9), rgba(239, 216, 188, 0.58));
   box-shadow: var(--shadow-soft);
 }
@@ -21,17 +21,17 @@
 }
 
 .hero-content h1 {
-  max-width: 600px;
+  max-width: 680px;
   margin: 22px 0 30px;
   font-family: var(--font-heading);
-  font-size: clamp(4rem, 7vw, 7.4rem);
+  font-size: clamp(4rem, 6vw, 6.6rem);
   line-height: 0.95;
   letter-spacing: -0.05em;
   color: var(--dark-brown);
 }
 
 .hero-content > p {
-  max-width: 480px;
+  max-width: 560px;
   font-size: clamp(1.05rem, 1.4vw, 1.22rem);
   line-height: 1.85;
   color: rgba(107, 88, 72, 0.86);
@@ -46,7 +46,7 @@
 
 .hero-image-wrapper {
   width: 100%;
-  height: 680px;
+  height: 560px;
   overflow: hidden;
   border-radius: 42px;
   isolation: isolate;
@@ -198,5 +198,76 @@
 
   .hero-content h1 {
     font-size: clamp(2.9rem, 15vw, 4rem);
+  }
+}
+
+.hero-glow,
+.hero-flower {
+  position: absolute;
+  pointer-events: none;
+}
+
+.hero-glow {
+  border-radius: 50%;
+  filter: blur(12px);
+  z-index: 1;
+}
+
+.hero-glow-one {
+  width: 360px;
+  height: 360px;
+  right: 8%;
+  top: 8%;
+  background: rgba(228, 177, 90, 0.38);
+}
+
+.hero-glow-two {
+  width: 260px;
+  height: 260px;
+  left: 8%;
+  bottom: 12%;
+  background: rgba(168, 183, 200, 0.28);
+}
+
+.hero-flower {
+  z-index: 3;
+  color: rgba(102, 116, 88, 0.38);
+  font-size: 2.2rem;
+}
+
+.flower-one {
+  left: 6%;
+  top: 23%;
+}
+
+.flower-two {
+  right: 8%;
+  top: 18%;
+}
+
+.flower-three {
+  right: 38%;
+  bottom: 14%;
+}
+
+@media (min-width: 901px) {
+  .hero {
+    min-height: 640px;
+    padding: 45px 56px 64px;
+    grid-template-columns: 1fr 1fr;
+    gap: 42px;
+    align-items: start;
+  }
+
+  .hero-image {
+    object-position: center 30%;
+  }
+
+  .hero-image-wrapper {
+    height: 520px;
+    max-width: 520px;
+    justify-self: start;
+    align-self: start;
+    margin-top: 0;
   }
 }
