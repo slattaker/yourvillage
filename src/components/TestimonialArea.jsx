@@ -1,15 +1,3 @@
-const towns = [
-  "Charlotte",
-  "Fort Mill",
-  "Rock Hill",
-  "Tega Cay",
-  "Waxhaw",
-  "Matthews",
-  "Belmont",
-  "Huntersville",
-  "Indian Trail",
-];
-
 function TestimonialArea() {
   return (
     <section className="section testimonial-area">
@@ -26,23 +14,27 @@ function TestimonialArea() {
         </div>
 
         <div className="service-area-card">
-          <p className="eyebrow">Serving Local Families</p>
+          <p className="eyebrow">Serving Families Across the Carolinas</p>
 
           <h2>
-            Birth and postpartum doula care across the Charlotte area.
+            Postpartum and newborn doula support throughout the Carolinas, and surrounding areas.
           </h2>
 
           <p>
-            Zoë’s Village supports growing families throughout Charlotte and the
-            surrounding communities with warm, personal care before, during, and
-            after birth.
+            Zoë’s Village provides compassionate postpartum and newborn support
+            for growing families across the Carolinas. Whether you're welcoming
+            your first baby, adjusting to life with a newborn, caring for
+            multiples, or simply looking for extra support during recovery,
+            personalized care is available to help your family feel confident,
+            rested, and supported.
           </p>
 
-          <div className="town-grid">
-            {towns.map((town) => (
-              <span key={town}>{town}</span>
-            ))}
-          </div>
+          <p className="service-area-text">
+            Based in the Carolinas and available for families throughout the Carolinas, and nearby regions. Daytime postpartum
+            care, overnight newborn support, twins and multiples support, and
+            specialized newborn care are available based on scheduling and
+            family needs.
+          </p>
         </div>
       </div>
     </section>

@@ -1,41 +1,92 @@
 import promiseImage from "../assets/promise-baby-hands.png";
 
+const BOOKING_URL =
+  "https://calendar.app.google/nXVsKwuQUBeXJyis8";
+
 function VillagePromise() {
   return (
-    <section className="section village-promise" id="contact">
+    <section className="section village-promise">
       <div className="container promise-wrap">
-        <div className="promise-art">
+<div className="promise-art">
           <img
             src={promiseImage}
-            alt="A newborn gently holding a caregiver's finger"
+            alt="A newborn gently holding a caregiver’s finger"
             className="promise-image"
           />
+
+          <div
+            className="promise-image-glow"
+            aria-hidden="true"
+          />
+
+          <div className="promise-photo-note">
+            <span aria-hidden="true">♡</span>
+
+            <p>
+              Gentle support for the earliest days at home.
+            </p>
+          </div>
         </div>
 
-        <div className="promise-content">
-          <p className="eyebrow">The Village Promise</p>
+<div className="promise-content">
+          <p className="eyebrow">
+            The Village Promise
+          </p>
 
           <h2>
             No family was meant to do this alone.
           </h2>
 
-          <p>
-            The early weeks with a newborn can be beautiful, exhausting, tender, and
-            overwhelming all at once. Zoë’s Village is here to offer practical help,
-            gentle guidance, and a calm presence while your family rests, recovers, and
-            finds its new rhythm.
+          <p className="promise-lead">
+            The newborn season can feel beautiful, exhausting,
+            tender, and overwhelming all at once.
           </p>
 
-          <div className="promise-actions">
-          <a
-            className="primary-btn"
-            href="https://calendar.app.google/nXVsKwuQUBeXJyis8"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Schedule a Free Consultation
-          </a>
+          <p>
+            Zoë’s Village offers practical help, gentle guidance,
+            and a calm presence while your family rests, recovers,
+            and finds its new rhythm.
+          </p>
+
+          <div className="promise-points">
+            <div>
+              <span aria-hidden="true">✦</span>
+              <p>Care shaped around your family</p>
+            </div>
+
+            <div>
+              <span aria-hidden="true">✦</span>
+              <p>Encouragement without judgment</p>
+            </div>
+
+            <div>
+              <span aria-hidden="true">✦</span>
+              <p>Support for rest, recovery, and confidence</p>
+            </div>
           </div>
+
+          <div className="promise-actions">
+            <a
+              className="primary-btn"
+              href={BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Schedule a Free Consultation
+            </a>
+
+            <a
+              className="promise-text-link"
+              href="#contact"
+            >
+              Contact Zoë
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+
+          <p className="promise-small">
+            Serving the Carolinas and surrounding areas.
+          </p>
         </div>
       </div>
     </section>

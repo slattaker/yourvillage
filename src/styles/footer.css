@@ -1,100 +1,370 @@
+/* ======================================================
+   FOOTER
+   ====================================================== */
+
 .site-footer {
- position: relative;
- padding: 72px 0 26px;
- background:
-   linear-gradient(
-     135deg,
-     #5e4b3f,
-     #526049
-   );
- color: #fffaf4;
+  position: relative;
+  overflow: hidden;
+
+  padding: 92px 0 28px;
+
+  background:
+    radial-gradient(
+      circle at 12% 8%,
+      rgba(228, 177, 90, 0.14),
+      transparent 28%
+    ),
+    linear-gradient(
+      135deg,
+      #5b4a3e,
+      #4f6049
+    );
+
+  color: #fffaf4;
 }
-.footer-contact {
- display: grid;
- grid-template-columns: 0.9fr 1.1fr;
- gap: 64px;
- align-items: start;
+
+.site-footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.03),
+      transparent 36%
+    );
+  pointer-events: none;
 }
-.footer-contact h2 {
- max-width: 560px;
- margin: 12px 0 18px;
- font-family: var(--font-heading);
- font-size: clamp(2.8rem, 5vw, 4.8rem);
- line-height: 0.95;
- color: #fffaf4;
+
+.footer-shell,
+.footer-closing {
+  position: relative;
+  z-index: 2;
 }
-.footer-contact > div:first-child > p:last-child {
- max-width: 540px;
- line-height: 1.75;
- color: rgba(255, 250, 244, 0.75);
+
+/* ======================================================
+   MAIN FOOTER LAYOUT
+   ====================================================== */
+
+.footer-shell {
+  display: grid;
+  grid-template-columns: minmax(360px, 0.95fr) minmax(420px, 1.05fr);
+  align-items: start;
+  gap: clamp(54px, 7vw, 100px);
 }
-.footer-contact .eyebrow {
- color: rgba(255, 231, 168, 0.9);
+
+.footer-intro .eyebrow {
+  margin: 0;
+
+  color: rgba(255, 231, 168, 0.9);
 }
-.footer-contact-details {
- display: grid;
- gap: 14px;
+
+.footer-intro h2 {
+  max-width: 650px;
+  margin: 14px 0 22px;
+
+  color: #fffaf4;
+
+  font-family: var(--font-heading);
+  font-size: clamp(3.5rem, 5.8vw, 6rem);
+  line-height: 0.9;
+  letter-spacing: -0.05em;
 }
-.footer-contact-details > a,
-.footer-contact-details > div {
- display: grid;
- gap: 5px;
- padding: 20px 22px;
- border-radius: 22px;
- border: 1px solid rgba(255, 255, 255, 0.12);
- background: rgba(255, 255, 255, 0.07);
- color: #fffaf4;
+
+.footer-intro > p {
+  max-width: 610px;
+  margin: 0;
+
+  color: rgba(255, 250, 244, 0.74);
+
+  font-size: 0.96rem;
+  line-height: 1.75;
 }
-.footer-contact-details span {
- font-size: 0.72rem;
- font-weight: 800;
- letter-spacing: 0.1em;
- text-transform: uppercase;
- color: rgba(255, 231, 168, 0.82);
-}
-.footer-contact-details strong {
- line-height: 1.5;
-}
+
 .footer-actions {
- margin-top: 32px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+
+  margin-top: 30px;
 }
+
+.footer-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  color: rgba(255, 250, 244, 0.82);
+
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
+.footer-text-link span {
+  transition: transform 0.25s ease;
+}
+
+.footer-text-link:hover span {
+  transform: translateX(5px);
+}
+
+/* ======================================================
+   CONTACT CARDS
+   ====================================================== */
+
+.footer-contact-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.footer-contact-card {
+  position: relative;
+  overflow: hidden;
+
+  display: grid;
+  gap: 6px;
+
+  padding: 23px 24px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+
+  transition:
+    transform 0.28s ease,
+    background 0.28s ease,
+    border-color 0.28s ease,
+    box-shadow 0.28s ease;
+}
+
+.footer-contact-card::before {
+  content: "";
+  position: absolute;
+  top: -90px;
+  right: -70px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 228, 164, 0.14),
+    transparent 70%
+  );
+  opacity: 0;
+  transition:
+    opacity 0.3s ease,
+    transform 0.45s ease;
+}
+
+a.footer-contact-card:hover {
+  transform: translateY(-5px);
+
+  border-color: rgba(255, 231, 168, 0.28);
+
+  background: rgba(255, 255, 255, 0.1);
+
+  box-shadow:
+    0 24px 52px rgba(31, 28, 24, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.footer-contact-card:hover::before {
+  opacity: 1;
+  transform: translate(-20px, 20px);
+}
+
+.footer-contact-card > * {
+  position: relative;
+  z-index: 2;
+}
+
+.footer-contact-card span {
+  color: rgba(255, 231, 168, 0.86);
+
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.footer-contact-card strong {
+  color: #fffaf4;
+
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+.footer-contact-card small {
+  color: rgba(255, 250, 244, 0.5);
+
+  font-size: 0.72rem;
+}
+
+/* ======================================================
+   FOOTER CLOSING
+   ====================================================== */
+
+.footer-closing {
+  margin-top: 68px;
+  padding-top: 28px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-promise {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  width: fit-content;
+  margin: 0 auto 34px;
+
+  text-align: left;
+}
+
+.footer-promise > span {
+  display: grid;
+  place-items: center;
+
+  width: 46px;
+  height: 46px;
+
+  flex-shrink: 0;
+
+  border-radius: 16px;
+
+  background: rgba(255, 231, 168, 0.1);
+  color: rgba(255, 231, 168, 0.8);
+
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+}
+
+.footer-promise p {
+  margin: 0 0 3px;
+
+  color: rgba(255, 250, 244, 0.88);
+
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+}
+
+.footer-promise small {
+  color: rgba(255, 250, 244, 0.48);
+
+  font-size: 0.72rem;
+}
+
 .footer-bottom {
- display: flex;
- justify-content: space-between;
- gap: 30px;
- margin-top: 56px;
- padding-top: 24px;
- border-top: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
 }
+
 .footer-bottom nav {
- display: flex;
- flex-wrap: wrap;
- gap: 18px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 18px;
 }
+
 .footer-bottom a,
 .footer-bottom p {
- margin: 0;
- color: rgba(255, 250, 244, 0.66);
- font-size: 0.82rem;
+  margin: 0;
+
+  color: rgba(255, 250, 244, 0.58);
+
+  font-size: 0.76rem;
 }
+
+.footer-bottom a {
+  transition: color 0.2s ease;
+}
+
 .footer-bottom a:hover {
- color: #ffe7a8;
+  color: rgba(255, 231, 168, 0.9);
 }
+
+/* ======================================================
+   TABLET
+   ====================================================== */
+
 @media (max-width: 900px) {
- .footer-contact {
-   grid-template-columns: 1fr;
-   gap: 36px;
- }
+  .footer-shell {
+    grid-template-columns: 1fr;
+    gap: 44px;
+  }
 }
-@media (max-width: 560px) {
- .site-footer {
-   padding-top: 58px;
- }
- .footer-actions .primary-btn {
-   width: 100%;
-   justify-content: center;
- }
- .footer-bottom {
-   flex-direction: column;
- }
+
+/* ======================================================
+   MOBILE
+   ====================================================== */
+
+@media (max-width: 600px) {
+  .site-footer {
+    padding-top: 74px;
+  }
+
+  .footer-intro h2 {
+    font-size: clamp(3.1rem, 13vw, 4.6rem);
+  }
+
+  .footer-actions {
+    display: grid;
+    gap: 16px;
+  }
+
+  .footer-actions .primary-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .footer-text-link {
+    justify-content: center;
+  }
+
+  .footer-contact-card {
+    padding: 21px 20px;
+  }
+
+  .footer-closing {
+    margin-top: 52px;
+  }
+
+  .footer-promise {
+    align-items: flex-start;
+  }
+
+  .footer-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .footer-bottom nav {
+    gap: 14px;
+  }
+}
+
+/* ======================================================
+   REDUCED MOTION
+   ====================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-text-link span,
+  .footer-contact-card,
+  .footer-contact-card::before {
+    transition-duration: 0.01ms !important;
+  }
+
+  a.footer-contact-card:hover {
+    transform: none;
+  }
 }

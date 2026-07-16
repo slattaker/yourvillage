@@ -41,7 +41,7 @@ function Hero() {
       <div className="hero-flower flower-three">✧</div>
 
 <div className="hero-content reveal">
-  <p className="eyebrow">Charlotte Postpartum Doula & Newborn Care</p>
+  <p className="eyebrow">Postpartum Doula & Newborn Care</p>
 
   <h1>Every family deserves a village.</h1>
 
@@ -79,7 +79,7 @@ function Hero() {
             Trusted Postpartum &<br />
             Newborn Care
           </h4>
-          <p>Charlotte • Fort Mill • Surrounding Areas</p>
+          <p>Carolinas • Surrounding Areas</p>
         </div>
       </div>
     </section>
