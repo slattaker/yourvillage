@@ -43,7 +43,7 @@ function Hero() {
 <div className="hero-content reveal">
   <p className="eyebrow">Postpartum Doula & Newborn Care</p>
 
-  <h1>Everyone family deserves a village, welcome to yours.</h1>
+  <h1>Every family deserves a village, welcome to yours.</h1>
 
   <p>
     Gentle postpartum and newborn care that helps your family rest, recover,
