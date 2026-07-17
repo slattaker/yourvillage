@@ -48,7 +48,7 @@ function Footer() {
             href="tel:+18036103007"
           >
             <span>Call or text</span>
-            <strong>(803) 610-3007</strong>
+            <strong>(803) 670-2596</strong>
             <small>Tap to call</small>
           </a>
 
