@@ -5,7 +5,6 @@ const postpartumPackages = [
   {
     name: "Golden Hour",
     hours: "20 Hours of Care",
-    price: "$900",
     badge: "A Gentle Beginning",
     bestFor:
       "Families with some nearby support who want professional guidance and several restorative visits during the earliest days at home.",
@@ -23,7 +22,6 @@ const postpartumPackages = [
   {
     name: "Village",
     hours: "40 Hours of Care",
-    price: "$1,800",
     badge: "Most Popular",
     featured: true,
     bestFor:
@@ -42,7 +40,6 @@ const postpartumPackages = [
   {
     name: "Fourth Trimester",
     hours: "80 Hours of Care",
-    price: "$3,600",
     badge: "Extended Care",
     bestFor:
       "Families seeking dependable support across several weeks, especially those with limited nearby help or a greater need for rest.",
