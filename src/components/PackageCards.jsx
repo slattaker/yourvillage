@@ -1,5 +1,4 @@
-const BOOKING_URL =
-  "https://calendar.app.google/nXVsKwuQUBeXJyis8";
+import { TEXT_URL } from "../data/siteData.js";
 
 const postpartumPackages = [
   {
@@ -134,11 +133,10 @@ function PackageCards() {
 
               <a
                 className="primary-btn package-button"
-                href={BOOKING_URL}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={TEXT_URL}
+                aria-label="Text Zoë to schedule a consultation"
               >
-                <span>Schedule a Consultation</span>
+                <span>Free consultation by text or phone</span>
                 <span aria-hidden="true">→</span>
               </a>
             </article>
@@ -163,7 +161,7 @@ function PackageCards() {
               </p>
 
               <ul>
-                <li>Complimentary consultation</li>
+                <li>Free consultation by text or phone</li>
                 <li>Personalized care planning</li>
                 <li>Evidence-based newborn guidance</li>
                 <li>Judgment-free emotional support</li>

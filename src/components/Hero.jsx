@@ -1,5 +1,9 @@
 import { useState } from "react";
 import heroImage from "../assets/hero-baby-feet.png";
+import {
+  TEXT_URL,
+  PHONE_NUMBER,
+} from "../data/siteData.js";
 
 function Hero() {
   const [parallax, setParallax] = useState({ x: 0, y: 0 });
@@ -53,11 +57,11 @@ function Hero() {
         <div className="hero-actions">
           <a
             className="primary-btn"
-            href="https://calendar.app.google/nXVsKwuQUBeXJyis8"
+            href={TEXT_URL}
             target="_blank"
             rel="noopener noreferrer"
           >
-            Schedule a Free Consultation
+            Free consultation by text or phone
           </a>
 
           <a className="secondary-btn" href="#services">

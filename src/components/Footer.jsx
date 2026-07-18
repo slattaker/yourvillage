@@ -1,5 +1,7 @@
-const BOOKING_URL =
-  "https://calendar.app.google/nXVsKwuQUBeXJyis8";
+import {
+  TEXT_URL,
+  PHONE_NUMBER,
+} from "../data/siteData.js";
 
 function Footer() {
   return (
@@ -19,27 +21,9 @@ function Footer() {
 
           <p>
             Reach out about postpartum support, newborn care,
-            availability, or scheduling a complimentary consultation.
+            availability, or scheduling a free consultation by text or phone.
           </p>
 
-          <div className="footer-actions">
-            <a
-              className="primary-btn"
-              href={BOOKING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Schedule a Free Consultation
-            </a>
-
-            <a
-              className="footer-text-link"
-              href="mailto:hello@zoesvillage.com"
-            >
-              Send an Email
-              <span aria-hidden="true">→</span>
-            </a>
-          </div>
         </div>
 
 <div className="footer-contact-grid">

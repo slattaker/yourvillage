@@ -1,7 +1,6 @@
 import promiseImage from "../assets/promise-baby-hands.png";
 
-const BOOKING_URL =
-  "https://calendar.app.google/nXVsKwuQUBeXJyis8";
+import { TEXT_URL } from "../data/siteData.js";
 
 function VillagePromise() {
   return (
@@ -67,12 +66,12 @@ function VillagePromise() {
 
           <div className="promise-actions">
             <a
-              className="primary-btn"
-              href={BOOKING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+              className="primary-btn package-button"
+              href={TEXT_URL}
+              aria-label="Text Zoë to schedule a consultation"
             >
-              Schedule a Free Consultation
+              <span>Free consultation by text or phone</span>
+              <span aria-hidden="true">→</span>
             </a>
 
             <a

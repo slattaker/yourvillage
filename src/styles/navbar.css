@@ -1164,3 +1164,18 @@ background: rgba(255, 250, 244, 0.12);
       inset 0 1px 0 rgba(255, 255, 255, 0.55);
   }
 }
+
+.site-mobile-phone-number {
+  display: block;
+  width: fit-content;
+  margin: 14px auto 0;
+  color: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+}
+
+.site-mobile-phone-number:hover {
+  text-decoration: underline;
+}

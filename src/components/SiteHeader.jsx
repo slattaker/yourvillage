@@ -6,17 +6,21 @@ import {
 import {
   Link,
   useLocation,
+  useNavigate,
 } from "react-router";
 
 import horizontalLogo from "../assets/zoes-village-horizontal-logo.svg";
 import iconLogo from "../assets/zoes-village-icon.svg";
 
-import { BOOKING_URL } from "../data/siteData.js";
+import {
+  BOOKING_URL,
+  PHONE_NUMBER,
+} from "../data/siteData.js";
 
 const navigationLinks = [
   {
     label: "Home",
-    to: "/",
+    to: "/#home",
   },
   {
     label: "About",
@@ -46,54 +50,48 @@ const navigationLinks = [
 
 function SiteHeader() {
   const location = useLocation();
+  const navigate = useNavigate();
 
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
-useEffect(() => {
-  let ticking = false;
+  useEffect(() => {
+    let ticking = false;
 
-  const handleScroll = () => {
-    if (ticking) return;
+    const handleScroll = () => {
+      if (ticking) return;
 
-    ticking = true;
+      ticking = true;
 
-    window.requestAnimationFrame(() => {
-      const currentScroll = window.scrollY;
+      window.requestAnimationFrame(() => {
+        const currentScroll = window.scrollY;
 
-      setScrolled((currentlyScrolled) => {
-        /*
-         * Shrink only after scrolling past 140px.
-         * Expand only after returning above 60px.
-         *
-         * The space between 60px and 140px prevents
-         * the navbar from rapidly switching states.
-         */
-        if (!currentlyScrolled && currentScroll > 140) {
-          return true;
-        }
+        setScrolled((currentlyScrolled) => {
+          if (!currentlyScrolled && currentScroll > 140) {
+            return true;
+          }
 
-        if (currentlyScrolled && currentScroll < 60) {
-          return false;
-        }
+          if (currentlyScrolled && currentScroll < 60) {
+            return false;
+          }
 
-        return currentlyScrolled;
+          return currentlyScrolled;
+        });
+
+        ticking = false;
       });
+    };
 
-      ticking = false;
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll, {
+      passive: true,
     });
-  };
 
-  handleScroll();
-
-  window.addEventListener("scroll", handleScroll, {
-    passive: true,
-  });
-
-  return () => {
-    window.removeEventListener("scroll", handleScroll);
-  };
-}, []);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   useEffect(() => {
     setMenuOpen(false);
@@ -107,7 +105,7 @@ useEffect(() => {
     };
 
     const handleResize = () => {
-      if (window.innerWidth > 860) {
+      if (window.innerWidth > 1100) {
         setMenuOpen(false);
       }
     };
@@ -141,6 +139,50 @@ useEffect(() => {
     setMenuOpen(false);
   };
 
+  const scrollToHomeTop = () => {
+    const homeSection =
+      document.getElementById("home");
+
+    if (homeSection) {
+      homeSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+
+      return;
+    }
+
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  };
+
+  const handleHomeClick = (event) => {
+    event.preventDefault();
+
+    closeMenu();
+
+    if (location.pathname === "/") {
+      window.history.replaceState(
+        null,
+        "",
+        "/"
+      );
+
+      scrollToHomeTop();
+
+      return;
+    }
+
+    navigate("/#home");
+
+    window.setTimeout(() => {
+      scrollToHomeTop();
+    }, 100);
+  };
+
   const isLinkActive = (link) => {
     if (link.to === "/resources") {
       return location.pathname.startsWith(
@@ -148,10 +190,11 @@ useEffect(() => {
       );
     }
 
-    if (link.to === "/") {
+    if (link.label === "Home") {
       return (
         location.pathname === "/" &&
-        !location.hash
+        (!location.hash ||
+          location.hash === "#home")
       );
     }
 
@@ -180,9 +223,9 @@ useEffect(() => {
       >
         <Link
           className="site-nav-logo"
-          to="/"
-          onClick={closeMenu}
-          aria-label="Zoë’s Village home"
+          to="/#home"
+          onClick={handleHomeClick}
+          aria-label="Return to the top of the Zoë’s Village homepage"
         >
           <img
             className="site-nav-logo-full"
@@ -206,6 +249,11 @@ useEffect(() => {
             <Link
               key={link.to}
               to={link.to}
+              onClick={
+                link.label === "Home"
+                  ? handleHomeClick
+                  : undefined
+              }
               className={
                 isLinkActive(link)
                   ? "site-nav-link-active"
@@ -221,10 +269,9 @@ useEffect(() => {
           <a
             className="site-nav-cta"
             href={BOOKING_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+            aria-label={`Text Zoë at ${PHONE_NUMBER}`}
           >
-            Free Consultation
+            Text Zoë
           </a>
 
           <button
@@ -238,7 +285,9 @@ useEffect(() => {
               .filter(Boolean)
               .join(" ")}
             onClick={() => {
-              setMenuOpen((current) => !current);
+              setMenuOpen(
+                (current) => !current
+              );
             }}
             aria-expanded={menuOpen}
             aria-controls="mobile-site-navigation"
@@ -265,7 +314,11 @@ useEffect(() => {
                   <Link
                     key={link.to}
                     to={link.to}
-                    onClick={closeMenu}
+                    onClick={
+                      link.label === "Home"
+                        ? handleHomeClick
+                        : closeMenu
+                    }
                     className={
                       isLinkActive(link)
                         ? "site-mobile-link-active"
@@ -293,27 +346,33 @@ useEffect(() => {
                 <span className="site-availability-dot" />
 
                 <p>
-                  Currently accepting new families
+                  Currently accepting new
+                  families
                 </p>
               </div>
 
               <a
                 className="site-mobile-menu-cta"
                 href={BOOKING_URL}
-                target="_blank"
-                rel="noopener noreferrer"
                 onClick={closeMenu}
+                aria-label={`Text Zoë at ${PHONE_NUMBER}`}
               >
-                <span>
-                  Schedule a Free Consultation
-                </span>
+                <span>Text Zoë</span>
 
                 <span aria-hidden="true">→</span>
               </a>
 
+              <a
+                className="site-mobile-phone-number"
+                href={BOOKING_URL}
+                onClick={closeMenu}
+              >
+                {PHONE_NUMBER}
+              </a>
+
               <p className="site-mobile-location">
-                Serving the Carolinas and
-                surrounding areas
+                Serving Fort Mill, Rock Hill,
+                Charlotte, and surrounding areas
               </p>
             </div>
           </div>

@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 import horizontalLogo from "../assets/zoes-village-horizontal-logo.svg";
 import iconLogo from "../assets/zoes-village-icon.svg";
+import {
+  TEXT_URL,
+  PHONE_NUMBER,
+} from "../data/siteData.js";
 
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -43,7 +47,7 @@ function Navbar() {
             </nav>      
           <a
             className="nav-cta"
-            href="https://calendar.app.google/nXVsKwuQUBeXJyis8"
+            href= {TEXT_URL}
             target="_blank"
             rel="noopener noreferrer"
           >
